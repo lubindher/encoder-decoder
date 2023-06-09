@@ -44,14 +44,43 @@ A0 = Y7 + Y5 + Y3 + Y1 <br>
 
 
 ## Program:
+Decoder
+```
+module decoder(a,b,c,d0,d1,d2,d3,d4,d5,d6,d7);
+input a,b,c;
+output d0,d1,d2,d3,d4,d5,d6,d7;
+assign d0=((~a)&(~b)&(~c));
+assign d1=((~a)&(~b)&c);
+assign d2=((~a)&b&(~c));
+assign d3=((~a)&b&c);
+assign d4=(a&(~b)&(~c));
+assign d5=(a&(~b)&c);
+assign d6=(a&b&(~c));
+assign d7=(a&b&c);
+endmodule
+```
+Encoder
+```
+module encoder(y0,y1,y2,y3,y4,y5,y6,y7,a0,a1,a2);
+input y0,y1,y2,y3,y4,y5,y6,y7;
+output a0,a1,a2;
+assign a0=(y7|y5|y3|y1);
+assign a1=(y7|y6|y3|y2);
+assign a2=(y7|y6|y5|y4);
+endmodule
+```
 
 
 ## RTL Schematic:
 
+![image](https://github.com/Afsarjumail/encoder-decoder/assets/118343395/42584ee4-8afe-4f18-ac1f-ad10e6f7a629)
+![image](https://github.com/Afsarjumail/encoder-decoder/assets/118343395/861f7be9-050f-4a8f-a47e-bbdcb1a449a4)
 
 
 
 ## Timing Diagram:
+![image](https://github.com/Afsarjumail/encoder-decoder/assets/118343395/451a4152-83fb-4cb5-ae0e-dfab7a28787e)
+![image](https://github.com/Afsarjumail/encoder-decoder/assets/118343395/244ed1a1-3064-4919-8546-5ff680554327)
 
 
 
